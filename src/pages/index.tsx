@@ -68,6 +68,7 @@ export default function Home() {
               fontSize='2xl'
               backdropBlur='7px'
               backgroundColor='rgb(35, 35, 35, 0.4)'
+              whiteSpace='nowrap'
               sx={{ writingMode: 'vertical-rl' }}
             >
               {tanka}
