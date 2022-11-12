@@ -42,7 +42,7 @@ export default function Home() {
           focusThumbOnChange={false}
           mt={15}
           min={1}
-          max={10}
+          max={12}
           onChange={(value) => {
             setAmount(value);
           }}
@@ -56,7 +56,7 @@ export default function Home() {
           </SliderThumb>
         </Slider>
 
-        <Stack direction='row' justifyContent='space-around' columnGap={6}>
+        <Stack direction='row' justifyContent='space-around' columnGap={6} wrap='wrap'>
           {tankaList.map((tanka) => (
             <Text
               p={2}
