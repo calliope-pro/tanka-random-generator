@@ -17,9 +17,9 @@ import { range } from 'lodash';
 export default function Home() {
   const [tankaList, setTankaList] = useState<string[]>([]);
   const [amount, setAmount] = useState(1);
-  const tankaGenerator = (templates: string[][][]) => {
+  const tankaGenerator = (templates: {[key: number]:string[]}[][]) => {
     return choose(templates)
-      .map((words) => choose(words))
+      .map((wordsCategory) => choose(choose(Object.values(wordsCategory))))
       .join('');
   };
   useEffect(() => {
@@ -27,12 +27,13 @@ export default function Home() {
       setTankaList(range(0, amount).map(() => tankaGenerator(templates)));
     }
   }, [tankaList, amount]);
+
   return (
     <Box bgColor='#18191A' minH='100vh'>
       <Container width='80vw'>
         <Head>
-          <title>短歌ジェネレーター</title>
-          <meta name='description' content='短歌ジェネレーター' />
+          <title>短歌ジェネレーター v2</title>
+          <meta name='description' content='短歌ジェネレーター v2' />
           <link rel='icon' href='/favicon.ico' />
         </Head>
 
